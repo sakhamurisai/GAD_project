@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Health Tracker - Your Wellness Companion</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Mental Health Tracker</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" data-page="home">Home</a>
+                <a href="#" class="nav-link hidden" data-page="mood-tracker">Mood Tracker</a>
+                <a href="#" class="nav-link hidden" data-page="recommendations">Recommendations</a>
+                <a href="#" class="nav-link hidden" data-page="history">History</a>
+                <a href="#" class="nav-link hidden" data-page="profile">Profile</a>
+                <button id="loginBtn" class="btn btn-secondary">Login</button>
+                <button id="signupBtn" class="btn btn-primary">Sign Up</button>
+                <button id="logoutBtn" class="btn btn-danger hidden">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Container -->
+    <div id="pageContainer">
+        <!-- Home Page -->
+        <div id="homePage" class="page active">
+            <section class="hero-section">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">
+                            <span class="gradient-text">Mental Health</span> Tracker
+                        </h1>
+                        <p class="hero-subtitle">
+                            Track your mood, discover personalized recommendations, and find your path to better mental well-being
+                        </p>
+                        
+                        <!-- Early Scroll Hint - Now at the top -->
+                        <div class="scroll-hint">
+                            <p>Discover more features below</p>
+                        </div>
+                        
+                        <div class="hero-actions">
+                            <button id="getStartedBtn" class="btn btn-primary btn-large">
+                                <i class="fas fa-heart"></i>
+                                Start Your Journey
+                            </button>
+                            <button id="learnMoreBtn" class="btn btn-secondary btn-large">
+                                <i class="fas fa-info-circle"></i>
+                                Learn More
+                            </button>
+                        </div>
+                        <!-- Explore More Button below hero actions -->
+                        <button class="explore-more-btn" onclick="scrollToContent()">
+                            <span>Explore More</span>
+                            <span class="explore-arrow"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Content Section - App Information and Features -->
+            <section class="content-section">
+                <div class="container">
+                    <div class="app-info">
+                        <h2>About Our App</h2>
+                        <p>We are here to help you assess and track your mood patterns, not to judge. Our goal is to provide you with insights into your emotional well-being and offer personalized recommendations to support your mental health journey.</p>
+                        
+                        <blockquote class="inspirational-quote">
+                            <p>"Mental health is not a destination, but a process. It's about how you drive, not where you're going."</p>
+                            <cite>- Noam Shpancer, Ph.D.</cite>
+                        </blockquote>
+                        
+                        <p class="app-description">
+                            This app is designed to help you understand your emotional patterns, track your mood changes, and discover what works best for your mental well-being. We believe that everyone deserves support in their mental health journey, and we're here to provide that support without judgment.
+                        </p>
+                    </div>
+                    
+                    <div class="hero-features">
+                        <div class="feature-card">
+                            <div class="feature-icon">📊</div>
+                            <h3>Mood Tracking</h3>
+                            <p>Track your daily moods and emotions with ease</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎵</div>
+                            <h3>Personalized Content</h3>
+                            <p>Get music and videos tailored to your mood</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📈</div>
+                            <h3>Progress Insights</h3>
+                            <p>View your mood history and patterns over time</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🤝</div>
+                            <h3>Professional Support</h3>
+                            <p>Access to mental health resources when needed</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Mood Tracker Page -->
+        <div id="moodTrackerPage" class="page">
+            <section class="mood-section">
+                <div class="container">
+                    <h2>How are you feeling today?</h2>
+                    <div class="mood-grid">
+                        <div class="mood-card" data-mood="happy">
+                            <div class="mood-emoji">😊</div>
+                            <h3>Happy</h3>
+                        </div>
+                        <div class="mood-card" data-mood="excited">
+                            <div class="mood-emoji">🤩</div>
+                            <h3>Excited</h3>
+                        </div>
+                        <div class="mood-card" data-mood="calm">
+                            <div class="mood-emoji">😌</div>
+                            <h3>Calm</h3>
+                        </div>
+                        <div class="mood-card" data-mood="neutral">
+                            <div class="mood-emoji">😐</div>
+                            <h3>Neutral</h3>
+                        </div>
+                        <div class="mood-card" data-mood="sad">
+                            <div class="mood-emoji">😢</div>
+                            <h3>Sad</h3>
+                        </div>
+                        <div class="mood-card" data-mood="anxious">
+                            <div class="mood-emoji">😰</div>
+                            <h3>Anxious</h3>
+                        </div>
+                        <div class="mood-card" data-mood="stressed">
+                            <div class="mood-emoji">😤</div>
+                            <h3>Stressed</h3>
+                        </div>
+                        <div class="mood-card" data-mood="depressed">
+                            <div class="mood-emoji">😔</div>
+                            <h3>Depressed</h3>
+                        </div>
+                    </div>
+
+                    <!-- Severity Section -->
+                    <div id="severitySection" class="severity-section hidden">
+                        <h3>How intense is this feeling?</h3>
+                        <div class="severity-options">
+                            <button class="severity-btn" data-severity="low">Low</button>
+                            <button class="severity-btn" data-severity="medium">Medium</button>
+                            <button class="severity-btn" data-severity="high">High</button>
+                            <button class="severity-btn" data-severity="severe">Severe</button>
+                        </div>
+                    </div>
+
+                    <!-- Feelings Section -->
+                    <div id="feelingsSection" class="feelings-section hidden">
+                        <h3>What are you feeling right now?</h3>
+                        <div class="feelings-grid">
+                            <div class="feeling-tag" data-feeling="overwhelmed">Overwhelmed</div>
+                            <div class="feeling-tag" data-feeling="lonely">Lonely</div>
+                            <div class="feeling-tag" data-feeling="frustrated">Frustrated</div>
+                            <div class="feeling-tag" data-feeling="grateful">Grateful</div>
+                            <div class="feeling-tag" data-feeling="hopeful">Hopeful</div>
+                            <div class="feeling-tag" data-feeling="confused">Confused</div>
+                            <div class="feeling-tag" data-feeling="peaceful">Peaceful</div>
+                            <div class="feeling-tag" data-feeling="energetic">Energetic</div>
+                        </div>
+                    </div>
+
+                    <!-- Incident Section -->
+                    <div id="incidentSection" class="incident-section hidden">
+                        <h3>Would you like to share what happened?</h3>
+                        <textarea id="incidentText" placeholder="Share your thoughts, feelings, or any incident that might have affected your mood today..."></textarea>
+                        <div id="contentWarning" class="content-warning hidden">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <span>We detected concerning language. Please consider speaking with a counselor.</span>
+                        </div>
+                        <!-- Advisor Support Prompt -->
+                        <div id="advisorSupportPrompt" class="advisor-support hidden">
+                            <i class="fas fa-user-md"></i>
+                            <span>
+                                You selected <b>Severe</b> as your mood intensity. Please consider reaching out to an advisor or professional support. <br>
+                                <a href="#" id="openHealthcareModal" class="btn btn-secondary btn-small">See Support Options</a>
+                            </span>
+                        </div>
+                    </div>
+
+                    <button id="saveMoodBtn" class="btn btn-primary hidden">Save Entry</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- Recommendations Page -->
+        <div id="recommendationsPage" class="page">
+            <section class="recommendations-section">
+                <div class="container">
+                    <h2>Personalized Recommendations</h2>
+                    
+                    <!-- Music Section -->
+                    <div class="music-section">
+                        <h3><i class="fas fa-music"></i> Music for Your Mood</h3>
+                        <p>Choose your preferred music style:</p>
+                        <div class="music-categories">
+                            <button class="music-category-btn active" data-genre="all">All Genres</button>
+                            <button class="music-category-btn" data-genre="Indian">Indian Music</button>
+                            <button class="music-category-btn" data-genre="American">American Music</button>
+                            <button class="music-category-btn" data-genre="Classical">Classical</button>
+                            <button class="music-category-btn" data-genre="Pop">Pop</button>
+                            <button class="music-category-btn" data-genre="Rock">Rock</button>
+                        </div>
+                        
+                        <!-- Music Search Bar -->
+                        <div class="search-container">
+                            <div class="search-box">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" id="musicSearchInput" placeholder="Search for your favorite songs, artists, or genres..." class="search-input">
+                                <button id="musicSearchBtn" class="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="musicPlayer" class="music-player">
+                            <div id="musicTracks" class="music-tracks">
+                                <!-- Music tracks will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Favorites Section -->
+                    <div class="favorites-section">
+                        <h3><i class="fas fa-heart"></i> Your Favorites</h3>
+                        <p>Quick access to your favorite tracks:</p>
+                        <div id="favoritesContainer" class="music-tracks">
+                            <!-- Favorites will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Music History Section -->
+                    <div class="music-history-section">
+                        <h3><i class="fas fa-history"></i> Recently Listened</h3>
+                        <p>Your recent music activity:</p>
+                        <div id="musicHistoryContainer" class="music-history-container">
+                            <!-- Music history will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Stress Relief Section -->
+                    <div class="stress-relief-section">
+                        <h3><i class="fas fa-laugh"></i> Need a Quick Laugh?</h3>
+                        <p>Take a break and enjoy some funny videos to lift your spirits!</p>
+                        <div class="video-categories">
+                            <button class="video-category-btn active" data-category="all">All</button>
+                            <button class="video-category-btn" data-category="animals">Animals</button>
+                            <button class="video-category-btn" data-category="babies">Babies</button>
+                            <button class="video-category-btn" data-category="comedy">Comedy</button>
+                        </div>
+                        
+                        <!-- Video Search Bar -->
+                        <div class="search-container">
+                            <div class="search-box">
+                                <i class="fas fa-search search-icon"></i>
+                                <input type="text" id="videoSearchInput" placeholder="Search for funny videos, animals, comedy, etc..." class="search-input">
+                                <button id="videoSearchBtn" class="search-btn">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div id="funnyVideos" class="funny-videos-grid">
+                            <!-- Funny videos will be loaded here -->
+                        </div>
+                    </div>
+
+                    <!-- Traditional Recommendations -->
+                    <div class="recommendations-grid">
+                        <div class="recommendation-card">
+                            <div class="card-icon">🧘‍♀️</div>
+                            <h3>Meditation</h3>
+                            <ul id="meditationList" class="recommendation-list"></ul>
+                        </div>
+                        <div class="recommendation-card">
+                            <div class="card-icon">🏃‍♀️</div>
+                            <h3>Activities</h3>
+                            <ul id="activitiesList" class="recommendation-list"></ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Enhanced Meditation Content -->
+                    <div class="meditation-section">
+                        <h3><i class="fas fa-om"></i> Guided Meditation Sessions</h3>
+                        <p>Choose a meditation session based on your current needs:</p>
+                        <div id="meditationContent" class="content-grid">
+                            <!-- Meditation content will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Enhanced Exercise Content -->
+                    <div class="exercise-section">
+                        <h3><i class="fas fa-dumbbell"></i> Exercise & Movement</h3>
+                        <p>Physical activity can significantly improve your mood and mental health:</p>
+                        <div id="exerciseContent" class="content-grid">
+                            <!-- Exercise content will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div id="professionalHelp" class="professional-help hidden">
+                        <div class="help-alert">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>Consider Professional Help</h3>
+                            <p>Based on your current state, we recommend speaking with a mental health professional.</p>
+                            <button id="findResourcesBtn" class="btn btn-secondary">Find Resources</button>
+                        </div>
+                        
+                        <!-- Healthcare Resources Modal -->
+                        <div id="healthcareModal" class="modal">
+                            <div class="modal-content healthcare-modal">
+                                <span class="close">&times;</span>
+                                <h2>Immediate Professional Help Resources</h2>
+                                
+                                <div class="healthcare-resources">
+                                    <!-- University of Dayton Healthcare -->
+                                    <div class="healthcare-card primary">
+                                        <div class="healthcare-header">
+                                            <h3><i class="fas fa-university"></i> University of Dayton Health Services</h3>
+                                            <span class="badge primary">Recommended</span>
+                                        </div>
+                                        <div class="healthcare-details">
+                                            <p><strong>Location:</strong> Gosiger Hall, 300 College Park, Dayton, OH 45469</p>
+                                            <p><strong>Phone:</strong> <a href="tel:937-229-3131">(937) 229-3131</a></p>
+                                            <p><strong>Hours:</strong> Monday-Friday 8:00 AM - 5:00 PM</p>
+                                            <p><strong>Services:</strong> Mental health counseling, crisis intervention, wellness programs</p>
+                                            <div class="healthcare-actions">
+                                                <a href="https://udayton.edu/studentlife/health/" target="_blank" class="btn btn-primary">Visit Website</a>
+                                                <a href="tel:937-229-3131" class="btn btn-secondary">Call Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Crisis Hotlines -->
+                                    <div class="healthcare-card">
+                                        <div class="healthcare-header">
+                                            <h3><i class="fas fa-phone"></i> 24/7 Crisis Support</h3>
+                                            <span class="badge emergency">Emergency</span>
+                                        </div>
+                                        <div class="healthcare-details">
+                                            <p><strong>National Suicide Prevention Lifeline:</strong> <a href="tel:988">988</a> or <a href="tel:1-800-273-8255">1-800-273-8255</a></p>
+                                            <p><strong>Crisis Text Line:</strong> Text "HOME" to <a href="sms:741741">741741</a></p>
+                                            <p><strong>Emergency Services:</strong> <a href="tel:911">911</a></p>
+                                            <div class="healthcare-actions">
+                                                <a href="tel:988" class="btn btn-emergency">Call 988 Now</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Local Resources -->
+                                    <div class="healthcare-card">
+                                        <div class="healthcare-header">
+                                            <h3><i class="fas fa-map-marker-alt"></i> Local Mental Health Resources</h3>
+                                        </div>
+                                        <div class="healthcare-details">
+                                            <p><strong>Montgomery County Crisis Services:</strong> <a href="tel:937-224-4646">(937) 224-4646</a></p>
+                                            <p><strong>Dayton Mental Health Services:</strong> <a href="tel:937-443-0416">(937) 443-0416</a></p>
+                                            <p><strong>Wright State University Counseling:</strong> <a href="tel:937-775-3407">(937) 775-3407</a></p>
+                                            <div class="healthcare-actions">
+                                                <a href="https://www.mhrdd.org/" target="_blank" class="btn btn-secondary">Learn More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="healthcare-disclaimer">
+                                    <p><strong>Important:</strong> If you're experiencing thoughts of self-harm or suicide, please call 988 immediately or go to the nearest emergency room. You are not alone, and help is available 24/7.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- History Page -->
+        <div id="historyPage" class="page">
+            <section class="history-section">
+                <div class="container">
+                    <h2>Your Mood History</h2>
+                    <div id="moodHistory" class="mood-history">
+                        <!-- Mood entries will be populated here -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Profile Page -->
+        <div id="profilePage" class="page">
+            <section class="profile-section">
+                <div class="container">
+                    <h2>Your Profile</h2>
+                    
+                    <div class="profile-container">
+                        <!-- Profile Picture Section -->
+                        <div class="profile-picture-section">
+                            <div class="profile-picture-container">
+                                <div class="profile-picture" id="profilePicture">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <button class="btn btn-small btn-secondary" id="changeProfilePicBtn">
+                                    <i class="fas fa-camera"></i> Change Picture
+                                </button>
+                                <input type="file" id="profilePicInput" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="profile-picture-caption">Add profile picture</div>
+                        </div>
+
+                        <!-- Profile Information (Read-only) -->
+                        <div class="profile-info-section">
+                            <div id="profileDetails" class="profile-details">
+                                <h3 id="profileNameDisplay">Full Name: <span></span></h3>
+                                <p id="profileAgeDisplay">Age: <span></span></p>
+                                <p id="profileEmailDisplay">Email: <span></span></p>
+                                <p id="profileYearDisplay">Year/Level: <span></span></p>
+                                <p id="profileCourseWorkDisplay">Course Work/Field: <span></span></p>
+                                <p id="profileSleepHoursDisplay">Sleep Hours: <span></span></p>
+                                <button id="editProfileBtn" class="btn btn-primary btn-small" type="button">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button id="viewLocalStorageBtn" class="btn btn-secondary btn-small" type="button" title="View your saved data in local storage">
+                                    <i class="fas fa-database"></i> View Saved Data
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Edit Profile Modal -->
+                    <div id="editProfileModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" id="closeEditProfileModal">&times;</span>
+                            <h2>Edit Profile</h2>
+                            <form id="editProfileForm" class="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="editProfileUsername">Full Name</label>
+                                        <input type="text" id="editProfileUsername" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editProfileAge">Age</label>
+                                        <input type="number" id="editProfileAge" min="1" max="120" required>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="editProfileEmail">Email Address</label>
+                                        <input type="email" id="editProfileEmail" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editProfileYear">Current Year/Level</label>
+                                        <select id="editProfileYear" required>
+                                            <option value="">Select your year/level</option>
+                                            <option value="High School Freshman">High School Freshman (9th Grade)</option>
+                                            <option value="High School Sophomore">High School Sophomore (10th Grade)</option>
+                                            <option value="High School Junior">High School Junior (11th Grade)</option>
+                                            <option value="High School Senior">High School Senior (12th Grade)</option>
+                                            <option value="College Freshman">College Freshman (1st Year)</option>
+                                            <option value="College Sophomore">College Sophomore (2nd Year)</option>
+                                            <option value="College Junior">College Junior (3rd Year)</option>
+                                            <option value="College Senior">College Senior (4th Year)</option>
+                                            <option value="Graduate Student">Graduate Student</option>
+                                            <option value="Working Professional">Working Professional</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="editProfileCourseWork">Course Work/Field of Study</label>
+                                        <input type="text" id="editProfileCourseWork" placeholder="e.g., Computer Science, Psychology, Engineering, etc.">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="editProfileSleepHours">Average Hours of Sleep per Night</label>
+                                        <select id="editProfileSleepHours" required>
+                                            <option value="">Select sleep pattern</option>
+                                            <option value="Less than 4 hours">Less than 4 hours</option>
+                                            <option value="4-5 hours">4-5 hours</option>
+                                            <option value="5-6 hours">5-6 hours</option>
+                                            <option value="6-7 hours">6-7 hours</option>
+                                            <option value="7-8 hours">7-8 hours (Recommended)</option>
+                                            <option value="8-9 hours">8-9 hours</option>
+                                            <option value="More than 9 hours">More than 9 hours</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="profile-actions">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save"></i> Save Changes
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Local Storage Data Modal -->
+                    <div id="localStorageModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close" id="closeLocalStorageModal">&times;</span>
+                            <h2>Your Saved Data</h2>
+                            <pre id="localStorageData" style="max-height: 400px; overflow-y: auto; background: #f3f4f6; padding: 16px; border-radius: 8px;"></pre>
+                        </div>
+                    </div>
+
+                    <!-- Account Statistics -->
+                    <div class="profile-stats">
+                        <h3>Your Activity</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4 id="totalMoodEntries">0</h4>
+                                    <p>Mood Entries</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4 id="totalMusicListened">0</h4>
+                                    <p>Songs Listened</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4 id="totalFavorites">0</h4>
+                                    <p>Favorites</p>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4 id="daysActive">0</h4>
+                                    <p>Days Active</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Auth Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Welcome Back</h2>
+            <form id="loginForm" class="auth-form">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <div class="form-group">
+                    <a href="#" id="forgotPasswordLink" class="forgot-password-link">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <p class="auth-switch">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Reset Password</h2>
+            
+            <!-- Step 1: Enter Email -->
+            <div id="forgotStep1" class="forgot-step active">
+                <p>Enter your email address to receive a 6-digit OTP for password reset.</p>
+                <form id="forgotEmailForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="forgotEmail">Email Address</label>
+                        <input type="email" id="forgotEmail" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send OTP</button>
+                </form>
+                <p class="auth-switch">Remember your password? <a href="#" id="backToLogin">Back to Login</a></p>
+            </div>
+            
+            <!-- Step 2: Enter OTP -->
+            <div id="forgotStep2" class="forgot-step">
+                <p>Enter the 6-digit OTP sent to your email.</p>
+                <form id="forgotOtpForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="forgotOtp">6-Digit OTP</label>
+                        <input type="text" id="forgotOtp" maxlength="6" pattern="[0-9]{6}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Verify OTP</button>
+                </form>
+                <p class="auth-switch">
+                    <a href="#" id="resendOtp">Resend OTP</a> | 
+                    <a href="#" id="backToEmail">Change Email</a>
+                </p>
+            </div>
+            
+            <!-- Step 3: New Password -->
+            <div id="forgotStep3" class="forgot-step">
+                <p>Enter your new password.</p>
+                <form id="forgotNewPasswordForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="forgotNewPassword">New Password</label>
+                        <input type="password" id="forgotNewPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="forgotConfirmPassword">Confirm New Password</label>
+                        <input type="password" id="forgotConfirmPassword" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Reset Password</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create Account</h2>
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <label for="signupUsername">Full Name</label>
+                    <input type="text" id="signupUsername" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupAge">Age</label>
+                    <input type="number" id="signupAge" min="1" max="120" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupYear">Current Year/Level</label>
+                    <select id="signupYear" required>
+                        <option value="">Select your year/level</option>
+                        <option value="High School Freshman">High School Freshman (9th Grade)</option>
+                        <option value="High School Sophomore">High School Sophomore (10th Grade)</option>
+                        <option value="High School Junior">High School Junior (11th Grade)</option>
+                        <option value="High School Senior">High School Senior (12th Grade)</option>
+                        <option value="College Freshman">College Freshman (1st Year)</option>
+                        <option value="College Sophomore">College Sophomore (2nd Year)</option>
+                        <option value="College Junior">College Junior (3rd Year)</option>
+                        <option value="College Senior">College Senior (4th Year)</option>
+                        <option value="Graduate Student">Graduate Student</option>
+                        <option value="Working Professional">Working Professional</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="signupCourseWork">Course Work/Field of Study</label>
+                    <input type="text" id="signupCourseWork" placeholder="e.g., Computer Science, Psychology, Engineering, etc.">
+                </div>
+                <div class="form-group">
+                    <label for="signupSleepHours">Average Hours of Sleep per Night</label>
+                    <select id="signupSleepHours" required>
+                        <option value="">Select sleep pattern</option>
+                        <option value="Less than 4 hours">Less than 4 hours</option>
+                        <option value="4-5 hours">4-5 hours</option>
+                        <option value="5-6 hours">5-6 hours</option>
+                        <option value="6-7 hours">6-7 hours</option>
+                        <option value="7-8 hours">7-8 hours (Recommended)</option>
+                        <option value="8-9 hours">8-9 hours</option>
+                        <option value="More than 9 hours">More than 9 hours</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="signupEmail">Email</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Password</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="consentCheckbox" required>
+                    <label for="consentCheckbox">
+                        I consent to the collection and processing of my personal information for mental health tracking purposes.
+                    </label>
+                </div>
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="ageConsentCheckbox" required>
+                    <label for="ageConsentCheckbox">
+                        I confirm that I am at least 13 years old and have parental consent if under 18.
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Create Account</button>
+            </form>
+            <p class="auth-switch">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading-spinner hidden">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Success Message -->
+    <div id="successMessage" class="success-message hidden">
+        <i class="fas fa-check-circle"></i>
+        <span>Mood entry saved successfully!</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
