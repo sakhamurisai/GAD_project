@@ -20,7 +20,7 @@ $$
 		
 		-- getting the acdemic_key from the given acdemic level
 		
-		SELECT academic_key INTO v_acdemic_key
+		SELECT academic_key INTO v_academic_key
 		FROM academics
 		WHERE academic_level LIKE LOWER(p_academic_level);
 
@@ -29,4 +29,4 @@ $$
 			RAISE EXCEPTION 'no matching entry found for name : %',p_name;
 		END IF;
 
-		--query the 
+		--Inserting into the

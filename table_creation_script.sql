@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS student (
     student_key SERIAL PRIMARY KEY ,
     student_id INT NOT NULL UNIQUE CHECK (LENGTH(student_id :: TEXT) = 6 ),
     date_of_birth DATE NOT NULL CHECK (date_of_birth < CURRENT_DATE),
-    academic_key INT REFERENCES academics(academic_key),
+    academic_year_key INT REFERENCES academic_year(academic_year_key),
     course_key INT REFERENCES course(course_key)
 );
 
